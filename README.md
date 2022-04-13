@@ -1,5 +1,5 @@
 # GFN-FPS-Unlocker
-LSPosed / EdXposed module to enable FullHD 120FPS streaming on some 120Hz phones with 120FPS support via GFN RTX 3080 subscription.
+LSPosed / EdXposed module to enable FullHD 120FPS streaming on 120Hz phones for users with a rooted phone and an acive GFN RTX 3080 subscription.
 
 ### Steps to use:
 1. Install Magisk, [LSPosed](https://github.com/LSPosed/LSPosed) Or [EdXposed](https://github.com/ElderDrivers/EdXposed).  
@@ -11,8 +11,12 @@ LSPosed / EdXposed module to enable FullHD 120FPS streaming on some 120Hz phones
 This module spoof some `build.prop` information like `BRAND`, `MANUFACTURER`, `MODEL`, `FINGERPRINT`, `BOARD`, `HARDWARE`. 
 By default the values are spoofed only for GeForce NOW app, but you can spoof for other apps as well if you enable it in LSPosed and also untick the option "Make sure to spoof only in GeForce NOW"
 
+### Will it work with my 120Hz Android phone/tablet?
+This has been tested on Samsung 120Hz devices, it might or might not work in 120Hz Android devices from other brands (for instance it doesn't work with my Xiaomi Pad 5).
+If it doesn't then most likely the manufacturer ROM of your device is the one to blame, don't blame Nvidia nor myself.
+
 ### TO-DO
-Spoofing Platform props. I tried to do it but then most of the values wouldn't be spoofed.
+Spoofing Platform props. I tried to do it but then most of the values wouldn't be spoofed. I think that's not necessary but I still wanted to do it.
 
 ### Disclaimer!!
 Do not root your Android device unless you are ok with the cons that rooting a phone brings nowadays.
@@ -20,5 +24,4 @@ The user takes sole responsibility for any damage that might arise due to use of
 This includes physical damage (to device), injury, data loss, and also legal matters.
 This project was made as a learning initiative and the developer cannot be held liable in any way for the use of it.
 
-This has been tested on Samsung 120Hz devices. It might or might not work in 120Hz Android devices from other brands. If it doesn't then most likely the manufacturer ROM of your device is the one to blame, don't blame Nvidia nor myself.
 
