@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="balti.xposed.pixelifygooglephotos">
+    package="soy_titooo.xposed.gfnfpsunlocker">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <queries>
-        <package android:name="com.google.android.apps.photos" />
+        <package android:name="com.nvidia.geforcenow" />
     </queries>
 
     <application
@@ -14,14 +14,14 @@
         android:supportsRtl="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/Theme.PixelifyGooglePhotos" >
+        android:theme="@style/Theme.GFN120FPSUnlocker" >
 
         <meta-data
             android:name="xposedmodule"
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="Add Google Pixel features in Google Photos on any device." />
+            android:value="Unlock 120FPS in GeForce NOW on devices with a 120HZ screen for GFN RTX 3080 subscribers. Tested on Samsung phones only, but it might work with other brands" />
         <meta-data
             android:name="xposedsharedprefs"
             android:value="true" />
@@ -40,9 +40,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".FeatureCustomize"/>
+        <activity android:name="soy_titooo.xposed.gfnfpsunlocker.FeatureCustomize"/>
 
-        <activity android:name=".AdvancedOptionsActivity"/>
+        <activity android:name="soy_titooo.xposed.gfnfpsunlocker.AdvancedOptionsActivity"/>
 
         <!--Guide at: https://infinum.com/the-capsized-eight/share-files-using-fileprovider-->
         <provider

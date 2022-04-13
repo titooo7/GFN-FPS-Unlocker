@@ -10,7 +10,7 @@
     changelog
     -->
 
-    <string name="app_name">Pixelify Google Photos</string>
+    <string name="app_name">GFN 120FPS Unlocker</string>
 
     <!--activity_main.xml-->
     <string name="reset">還原</string>
@@ -23,13 +23,13 @@
      如果您想在其他應用中使用它，請保持此開關 <b>關閉</b>.</string>
     <string name="override_rom_feature_levels">覆蓋 ROM 自訂功能</string>
     <string name="override_rom_feature_levels_desc">如果使用者選擇較低版本的 Pixel，
-    將避免部分 ROM 內含有模擬 Pixel 的功能影響 Pixelify Google Photos <b>(推薦啟用)</b></string>
+    將避免部分 ROM 內含有模擬 Pixel 的功能影響 GFN 120FPS Unlocker <b>(推薦啟用)</b></string>
     <string name="force_stop_google_photos">強制停止\nGoogle 相簿</string>
     <string name="module_not_enabled">
         \n
         此模組似乎未啟用。\n
         請在 LSPosed / EdXposed 中啟用它，然後重新啟動。\n
-        如果已啟用，可能需強制強制停止 Pixelify Google Photos 後重啟。\n
+        如果已啟用，可能需強制強制停止 GFN 120FPS Unlocker 後重啟。\n
         如果沒用，請移除並重新安裝。
     </string>
     <string name="close">關閉</string>
