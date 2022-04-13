@@ -2,10 +2,11 @@
 LSPosed / EdXposed module to enable FullHD 120FPS streaming on 120Hz phones for users with a rooted phone and an acive GFN RTX 3080 subscription.
 
 ### Steps to use:
-1. Install Magisk, [LSPosed](https://github.com/LSPosed/LSPosed) Or [EdXposed](https://github.com/ElderDrivers/EdXposed).  
-2. Install the apk of this app (available from [Releases](https://github.com/titooo7/GFN-FPS-Unlocker/releases) page.)  
-3. Open LSPosed / EdXposed app and enable the module. For LSPosed, GeForce NOW will be automatically selected as a target app to receive spoofed data.  
-4. Reboot, open the app GFN 120FPS Unlocker and apply changes. (It will clear the data of GeForce NOW app).  
+1. You need a rooted Android device, but DO NOT ROOT your  device unless you are ok with the CONS that rooting an Android brings nowadays!
+2. Install Magisk, [LSPosed](https://github.com/LSPosed/LSPosed) Or [EdXposed](https://github.com/ElderDrivers/EdXposed).  
+3. Install the apk of this app (available from [Releases](https://github.com/titooo7/GFN-FPS-Unlocker/releases) page.)  
+4. Open LSPosed / EdXposed app and enable the module. For LSPosed, GeForce NOW will be automatically selected as a target app to receive spoofed data.  
+5. Reboot, open the app GFN 120FPS Unlocker and apply changes. (It will clear the data of GeForce NOW app).  
 
 ### How does this module work?
 This module spoof some `build.prop` information like `BRAND`, `MANUFACTURER`, `MODEL`, `FINGERPRINT`, `BOARD`, `HARDWARE`. 
@@ -19,7 +20,6 @@ If it doesn't then most likely the manufacturer ROM of your device is the one to
 Spoofing Platform props. I tried to do it but then most of the values wouldn't be spoofed. I think that's not necessary but I still wanted to do it.
 
 ### Disclaimer!!
-Do not root your Android device unless you are ok with the cons that rooting a phone brings nowadays.
 The user takes sole responsibility for any damage that might arise due to use of this module.  
 This includes physical damage (to device), injury, data loss, and also legal matters.
 This project was made as a learning initiative and the developer cannot be held liable in any way for the use of it.
