@@ -9,8 +9,8 @@ LSPosed / EdXposed module for GFN RTX 3080 users with an 120Hz Android device th
 5. Reboot, open the app GFN 120FPS Unlocker and apply changes. (It will clear the data of GeForce NOW app).  
 
 ### How does this module work?
-This module spoof the `BRAND`, `MANUFACTURER`, `MODEL`, `FINGERPRINT`, `BOARD`, `HARDWARE` of your phone (build.prop values)
-By default, the values are spoofed only for GeForce NOW app, but you can enable it for other apps as well in LSPosed (just make sure to untick the option "Make sure to spoof only in GeForce NOW")
+This module spoof the `BRAND`, `MANUFACTURER`, `MODEL`, `FINGERPRINT`, `BOARD`, `HARDWARE` of your phone. 
+By default, the values are spoofed only for GeForce NOW, but you can enable it for other apps as well in LSPosed (just make sure to untick the option "Make sure to spoof only in GeForce NOW")
 
 ### Will it work with my 120Hz Android phone/tablet?
 This has been confirmed to work on Samsung devices with a 120Hz display. It might or might not work in 120Hz Android devices from other brands. If it doesn't work for your 120Hz device then most likely the manufacturer ROM of your device is the one to blame, don't blame Nvidia nor myself.
