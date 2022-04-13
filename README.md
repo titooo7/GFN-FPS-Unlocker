@@ -2,9 +2,6 @@
 LSPosed / EdXposed module to enable FullHD 120FPS streaming on some 120Hz phones with 120FPS support via GFN RTX 3080 subscription. 
 Tested on LSPosed by [soy_titooo](https://github.com/titooo7)  
 
-[Development repo](https://github.com/titooo7/GFN-FPS-Unlocker.git)  
-
-
 ### Steps to use:
 1. Install Magisk, [LSPosed](https://github.com/LSPosed/LSPosed) Or [EdXposed](https://github.com/ElderDrivers/EdXposed).  
 2. Install the apk of this app (available from [Releases](https://github.com/titooo7/GFN-FPS-Unlocker/releases) page.)  
