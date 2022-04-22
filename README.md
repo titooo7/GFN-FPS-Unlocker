@@ -22,6 +22,7 @@ Xiaomi Pad 5: It doesn't work, spoofing those values isn't enough
 
 ### TO-DO
 Spoofing ro.sf.lcd_density. On devices like Xiaomi Pad 5 it needs to be changed to 450 otherwise it won't enable the 120fps option. I tried to do it but failed miserable (probably easy to do for a real dev).
+The code needs to be cleaned. I'm not a dev so I forked and modified some bits to fit my purpose but I'm sure that now there is a lot of bits of code that now could be removed as are probably not being used. 
 
 ### Disclaimer!!
 The user takes sole responsibility for any damage that might arise due to use of this module.  
