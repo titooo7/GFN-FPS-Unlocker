@@ -21,7 +21,7 @@ Galaxy A52s: Perfect results streaming at 720p 120FPS. Terrible results streamin
 Xiaomi Pad 5: It doesn't work, spoofing those values isn't enough
 
 ### TO-DO
-Spoofing Platform props. I tried to do it but then most of the values wouldn't be spoofed. I think that's not necessary but I still wanted to do it.
+Spoofing ro.sf.lcd_density. On devices like Xiaomi Pad 5 it needs to be changed to 450 otherwise it won't enable the 120fps option. I tried to do it but failed miserable (probably easy to do for a real dev).
 
 ### Disclaimer!!
 The user takes sole responsibility for any damage that might arise due to use of this module.  
