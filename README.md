@@ -20,13 +20,15 @@ If it doesn't work for your 120Hz device then most likely the manufacturer ROM i
 Galaxy A52s: Perfect results streaming at 720p 120FPS. Terrible results streaming at 1080p 120FPS probably due to lack of power on my device.
 Xiaomi Pad 5: It doesn't work, spoofing those values isn't enough
 
-### #1 TO-DO (MODULE COMPATIBLITY XIAOMI PAD 5)
-On devices like Xiaomi Pad 5, ro.sf.lcd_density needs to be changed to 450 otherwise it won't enable the 120fps option. I tried to do it but failed miserable (probably easy to do for a real dev).
-An alternative to would be to execute wm density 450 when com.nvidia.geforcenow is launched and wm density reset when com.nvidia.geforcenow is killed or sent to the background.
-In the meantime you can use a DPI changer app to set the density 450 before running the app...
 
-### #2 TO-DO (CLEAN-UP)
-he code needs to be cleaned. I'm not a dev so I forked and modified some bits to fit my purpose but I'm sure that now there is a lot of bits of code that now could be removed as are probably not being used. 
+### TO-DO (CLEAN-UP)
+The code needs to be cleaned. I'm not a dev so I forked and modified some bits of the original to fit my purpose, but I'm sure that now there is a lot of bits of code that now could be removed because now it's not being used. 
+
+
+### #1 TO-DO (MERGE BRANCHES)
+main branch has been tested on Samsung devices and it doesn't require any DPI change.
+xiaomipad5 branch has addditional modifications because on Xiaomi Pad 5 the 120FPS option only appears if you change the dpi from 360 to 450 and open the app to clear data.
+Ideally it'd be nice to merge both branches and their different app behaivour into one, but that'd be too much of an ask for me at the moment due to my limited coding skills.
 
 
 ### Disclaimer!!
