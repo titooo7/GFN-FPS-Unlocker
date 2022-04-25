@@ -1,5 +1,5 @@
 # GFN-FPS-Unlocker
-LSPosed / EdXposed module for GFN RTX 3080 users with an 120Hz Android device that isn't officially supported to receive a 120FPS GFN stream.
+LSPosed / EdXposed module for G-N RTX 3o8o users with an 120Hz Android device that isn't officially supported to receive a 120FPS GFN stream.
 
 ### Steps to use:
 1. You need a rooted Android device, but DO NOT ROOT your  device unless you are ok with the CONS that rooting an Android brings nowadays!
