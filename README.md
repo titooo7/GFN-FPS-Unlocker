@@ -20,8 +20,16 @@ If it doesn't work for your 120Hz device then most likely the manufacturer ROM i
 Galaxy A52s: Perfect results streaming at 720p 120FPS. Terrible results streaming at 1080p 120FPS probably due to lack of power on my device.
 Xiaomi Pad 5: It doesn't work, spoofing those values isn't enough
 
-### TO-DO
-Spoofing Platform props. I tried to do it but then most of the values wouldn't be spoofed. I think that's not necessary but I still wanted to do it.
+
+### TO-DO (CLEAN-UP)
+The code needs to be cleaned. I'm not a dev so I forked and modified some bits of the original to fit my purpose, but I'm sure that now there is a lot of bits of code that now could be removed because now it's not being used. 
+
+
+### #1 TO-DO (MERGE BRANCHES)
+main branch has been tested on Samsung devices and it doesn't require any DPI change.
+xiaomipad5 branch has addditional modifications because on Xiaomi Pad 5 the 120FPS option only appears if you change the dpi from 360 to 450 and open the app to clear data.
+Ideally it'd be nice to merge both branches and their different app behaivour into one, but that'd be too much of an ask for me at the moment due to my limited coding skills.
+
 
 ### Disclaimer!!
 The user takes sole responsibility for any damage that might arise due to use of this module.  

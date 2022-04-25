@@ -2,18 +2,19 @@ package soy_titooo.xposed.gfnfpsunlocker
 
 import android.os.Build
 import android.util.Log
-import soy_titooo.xposed.gfnfpsunlocker.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
-import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_DEVICE_TO_SPOOF
-import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_ENABLE_VERBOSE_LOGS
-import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE
-import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_SPOOF_ANDROID_VERSION_MANUAL
-import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import soy_titooo.xposed.gfnfpsunlocker.BuildConfig
+import soy_titooo.xposed.gfnfpsunlocker.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
+import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_DEVICE_TO_SPOOF
+import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_ENABLE_VERBOSE_LOGS
+import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE
+import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_SPOOF_ANDROID_VERSION_MANUAL
+import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
+
 
 /**
  * Codenames of pixels:
@@ -89,8 +90,8 @@ class DeviceSpoofer: IXposedHookLoadPackage {
 
             if (keys.isEmpty()) return
             val classLoader = lpparam?.classLoader ?: return
-
             val classBuild = XposedHelpers.findClass("android.os.Build", classLoader)
+
             keys.forEach {
                 XposedHelpers.setStaticObjectField(classBuild, it, this[it])
                 if (verboseLog) log("DEVICE PROPS: $it - ${this[it]}")
@@ -108,7 +109,7 @@ class DeviceSpoofer: IXposedHookLoadPackage {
                 if (verboseLog) log("VERSION SPOOF: $it - ${this[it]}")
             }
         }
-
     }
 
 }
+

@@ -38,7 +38,7 @@
     <string name="update_available">App update available!</string>
 
     <!--changelog-->
-    <string name="version_head">Version 0.9</string>
+    <string name="version_head">Version 1.0</string>
     <string name="version_desc">
         \n
         1- This module won\'t do anything if you don\'t have a GFN RTX 3080 subscription and a 120Hz phone.\n

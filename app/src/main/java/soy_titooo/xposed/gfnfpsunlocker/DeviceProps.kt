@@ -1,15 +1,8 @@
 package soy_titooo.xposed.gfnfpsunlocker
-
 /**
  * Build values taken from:
  * Pixel 6:
  * https://github.com/DotOS/android_frameworks_base/blob/dot12/core/java/com/android/internal/util/custom/PixelPropsUtils.java
- * Pixel 2:
- * https://gist.github.com/markstachowski/4069f15c5c989827b9e64c0aec045434
- * Pixel 5a:
- * https://github.com/LineageOS/android_device_google_barbet/blob/lineage-18.1/lineage_barbet.mk
- * All other pixels:
- * https://github.com/orgs/Pixel-Props/repositories
  * Also from
  * https://github.com/DotOS/android_frameworks_base/commit/3f7ea7d070017ed1f38035333f084865865698b2
  *
@@ -118,7 +111,7 @@ object DeviceProps {
 
     /**
      * List of all devices and their build props
-     *
+     * NVIDIA SHIELD TV PRO 2019
      * ASUS ROG 5 Series ZS673KS
      * SNAPDRAGON SAMSUNG GALAXY S20 FE 5G (the one we use currently) - r8q r8qxxx SM-G781B
      * GOOGLE PIXEL 6 PRO
@@ -129,8 +122,24 @@ object DeviceProps {
         DeviceEntries("None", hashMapOf(), "None", null),
 
         DeviceEntries(
+            "Shield TV Pro", hashMapOf(
+                Pair("BRAND", "NVIDIA"),
+                Pair("MANUFACTURER", "NVIDIA"),
+                Pair("DEVICE", "mdarcy"),
+                Pair("PRODUCT", "mdarcy"),
+                Pair("MODEL", "SHIELD Android TV"),
+                Pair("FINGERPRINT", "NVIDIA/mdarcy/mdarcy:11/RQ1A.210105.003/7094531_2999.9831:user/release-keys"),
+                //Pair("BOARD", "???"),
+                //Pair("HARDWARE", "???"),
+                //Pair("TYPE", "???"),
+            ),
+            "",
+            getAndroidVersionFromLabel("R 11.0"),
+        ),
+
+        DeviceEntries(
             "ASUS ROG 5", hashMapOf(
-                Pair("BRAND", "asus"),
+				Pair("BRAND", "asus"),
                 Pair("MANUFACTURER", "asus"),
                 Pair("DEVICE", "ASUS_I005_1"),
                 Pair("PRODUCT", "WW_I005D"),
@@ -138,14 +147,16 @@ object DeviceProps {
                 Pair("FINGERPRINT", "asus/WW_I005D/ASUS_I005_1:11/RKQ1.201022.002/18.0840.2103.26-0:user/release-keys"),
                 Pair("BOARD", "lahaina"),
                 Pair("HARDWARE", "qcom"),
+                Pair("TYPE", "Phone"),
+                //Pair("PLATFORM", "lahaina"), this is not a prop from android.os.Build so using it breaks the above
             ),
-            "Pixel 2020 mid-year",
+            "",
             getAndroidVersionFromLabel("R 11.0"),
         ),
 
         DeviceEntries(
             "SAMSUNG", hashMapOf(
-                Pair("BRAND", "samsung"),
+				Pair("BRAND", "samsung"),
                 Pair("MANUFACTURER", "samsung"),
                 Pair("DEVICE", "r8q"),
                 Pair("PRODUCT", "r8qxxx"),
@@ -153,14 +164,21 @@ object DeviceProps {
                 Pair("FINGERPRINT", "samsung/r8qxxx/r8q:10/QP1A.190711.020/G781BXXU1ATJ5:user/release-keys"),
                 Pair("BOARD", "kona"),
                 Pair("HARDWARE", "qcom"),
+                Pair("TYPE", "Phone"),
+				Pair("ID", "QP1A.190711.020"),
+				Pair("DISPLAY", "r8qxxx-user 10 QP1A.190711.020 G781BXXU1ATJ5 release-keys"),
+                Pair("INCREMENTAL", "G781BXXU1ATJ5"),
+                //Pair("PLATFORM", "kona"), this is not a prop from android.os.Build so using it breaks the above
+
+
             ),
-            "Pixel 2020",
+            "",
             getAndroidVersionFromLabel("S 12.0"),
         ),
 
         DeviceEntries(
             "PIXEL 6 PRO", hashMapOf(
-                Pair("BRAND", "google"),
+				Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "raven"),
                 Pair("PRODUCT", "raven"),
@@ -168,6 +186,8 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"),
                 Pair("HARDWARE", "raven"),
                 Pair("BOARD", "raven"),
+                Pair("TYPE", "Phone"),
+                //Pair("PLATFORM", "gs101"), this is not a prop from android.os.Build so using it breaks the above
             ),
             "Pixel 2021",
             getAndroidVersionFromLabel("S 12.0"),
