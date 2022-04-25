@@ -24,10 +24,8 @@ Xiaomi Pad 5: It doesn't work, spoofing those values isn't enough
 ### TO-DO (CLEAN-UP)
 The code needs to be cleaned. I'm not a dev so I forked and modified some bits of the original to fit my purpose, but I'm sure that now there is a lot of bits of code that now could be removed because now it's not being used. 
 
-
-### #1 TO-DO (MERGE BRANCHES)
-main branch has been tested on Samsung devices and it doesn't require any DPI change.
-xiaomipad5 branch has addditional modifications because on Xiaomi Pad 5 the 120FPS option only appears if you change the dpi from 360 to 450 and open the app to clear data.
+'main' branch has been tested on Samsung devices and it doesn't require any DPI change.
+'xiaomipad5' branch has addditional modifications because on Xiaomi Pad 5 the 120FPS streaming option only appears if you change the dpi from 360 to 450 before you clear the app data and open it.
 Ideally it'd be nice to merge both branches and their different app behaivour into one, but that'd be too much of an ask for me at the moment due to my limited coding skills.
 
 
