@@ -25,7 +25,8 @@
     <string name="override_rom_feature_levels">Override ROM feature levels.</string>
     <string name="override_rom_feature_levels_desc">Pass false to hooked method for higher feature levels present in ROM
     if user selects a lower Pixel feature level. <b>(Recommended)</b></string>
-    <string name="force_stop_google_photos">Apply changes to\nGeForce NOW</string>
+    <string name="force_stop_google_photos">First press here to unlock 120FPS</string>
+    <string name="reset_wm_density">Revert UI changes</string>
     <string name="module_not_enabled">
         \n
         Looks like this app module is not enabled.\n
@@ -33,7 +34,8 @@
         If already enabled, then just reboot. If that does not work, kindly uninstall and reinstall.
     </string>
     <string name="close">Close</string>
-    <string name="open_google_photos">Open GeForce NOW</string>
+    <string name="open_google_photos">Now press here to open GFN</string>
+
     <string name="telegram_group">Telegram group!</string>
     <string name="update_available">App update available!</string>
 

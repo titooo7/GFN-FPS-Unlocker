@@ -93,7 +93,8 @@ class ActivityMain : AppCompatActivity(R.layout.activity_main) {
             findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
         val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
         val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
-        val openGooglePhotos = findViewById<ImageButton>(R.id.open_google_photos)
+        val openGooglePhotos = findViewById<Button>(R.id.open_google_photos)
+        val resetDensity = findViewById<Button>(R.id.reset_wm_density)
         val telegramLink = findViewById<TextView>(R.id.telegram_group)
         val updateAvailableLink = findViewById<TextView>(R.id.update_available_link)
         /**
@@ -171,6 +172,13 @@ class ActivityMain : AppCompatActivity(R.layout.activity_main) {
          */
         openGooglePhotos.setOnClickListener {
             utils.openApplication(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
+        }
+
+        /**
+         * See [Utils.openApplication].
+         */
+        resetDensity.setOnClickListener {
+            utils.resetWmDensity(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
         }
 
         /**

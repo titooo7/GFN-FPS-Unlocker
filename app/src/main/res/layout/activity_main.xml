@@ -79,6 +79,20 @@
             android:layout_width="wrap_content"
             android:layout_height="15dp" />
 
+        <Button
+            android:id="@+id/force_stop_google_photos"
+            android:layout_width="343dp"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            android:text="@string/force_stop_google_photos" />
+
+        <Button
+            android:id="@+id/open_google_photos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            android:text="@string/open_google_photos" />
+
         <Space
             android:layout_width="wrap_content"
             android:layout_height="15dp" />
@@ -100,6 +114,17 @@
             android:layout_width="wrap_content"
             android:layout_height="5dp" />
 
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="25dp" />
+
+        <Button
+            android:id="@+id/reset_wm_density"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            android:text="@string/reset_wm_density" />
+
         <TextView
             android:id="@+id/telegram_group"
             android:layout_width="wrap_content"
@@ -112,32 +137,9 @@
             android:textColor="?android:attr/colorPrimary"
             android:textStyle="bold" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="25dp" />
-
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/force_stop_google_photos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="3dp"
-                android:text="@string/force_stop_google_photos" />
-
-            <ImageButton
-                android:id="@+id/open_google_photos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/force_stop_google_photos"
-                android:layout_alignBottom="@id/force_stop_google_photos"
-                android:layout_toEndOf="@id/force_stop_google_photos"
-                android:backgroundTint="?android:attr/colorPrimary"
-                android:contentDescription="@string/open_google_photos"
-                android:elevation="3dp"
-                android:src="@drawable/ic_open" />
 
         </RelativeLayout>
 

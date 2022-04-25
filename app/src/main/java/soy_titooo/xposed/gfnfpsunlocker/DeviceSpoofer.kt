@@ -95,6 +95,9 @@ class DeviceSpoofer : IXposedHookLoadPackage {
 
             keys.forEach {
                 XposedHelpers.setStaticObjectField(classBuild, it, this[it])
+                //below code didn't change anything...
+                //XposedHelpers.setAdditionalStaticField(classBuild, "persist.miui.density_v2", "450")
+                //XposedHelpers.setAdditionalStaticField(classBuild, "ro.sf.lcd_density", "450")
                 if (verboseLog) log("DEVICE PROPS: $it - ${this[it]}")
             }
 
@@ -107,6 +110,9 @@ class DeviceSpoofer : IXposedHookLoadPackage {
 
             keys.forEach {
                 XposedHelpers.setStaticObjectField(classBuild, it, this[it])
+                //below code didn't change anything...
+                //XposedHelpers.setAdditionalStaticField(classBuild, "persist.miui.density_v2", "450")
+                //XposedHelpers.setAdditionalStaticField(classBuild, "ro.sf.lcd_density", "450")
                 if (verboseLog) log("VERSION SPOOF: $it - ${this[it]}")
             }
         }

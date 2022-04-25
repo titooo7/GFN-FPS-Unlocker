@@ -158,8 +158,7 @@ object DeviceProps {
                 Pair("BOARD", "lahaina"),
                 Pair("HARDWARE", "qcom"),
                 Pair("TYPE", "Phone"),
-                //Pair("PLATFORM", "lahaina"), this is not a build prop value so using it breaks the above
-                //Pair("lcd_density", "450"), lcd_density is not a build prop value so using it breaks the above
+                //Pair("PLATFORM", "lahaina"), this is not a prop from android.os.Build so using it breaks the above
             ),
             "",
             getAndroidVersionFromLabel("R 11.0"),
@@ -184,8 +183,9 @@ object DeviceProps {
                 Pair("DISPLAY", "r8qxxx-user 10 QP1A.190711.020 G781BXXU1ATJ5 release-keys"),
                 Pair("INCREMENTAL", "G781BXXU1ATJ5"),
                 //Pair("PLATFORM", "kona"), this is not a prop from android.os.Build so using it breaks the above
-                //Pair("lcd_density", "450"), lcd_density is not a build prop value so using it breaks the above
-                ),
+
+
+            ),
             "",
             getAndroidVersionFromLabel("S 12.0"),
         ),
@@ -206,7 +206,6 @@ object DeviceProps {
                 Pair("BOARD", "raven"),
                 Pair("TYPE", "Phone"),
                 //Pair("PLATFORM", "gs101"), this is not a prop from android.os.Build so using it breaks the above
-               //Pair("lcd_density", "450"), lcd_density is not a build prop value so using it breaks the above
             ),
             "Pixel 2021",
             getAndroidVersionFromLabel("S 12.0"),

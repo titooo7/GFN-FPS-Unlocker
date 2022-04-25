@@ -33,10 +33,15 @@ class Utils {
             Runtime.getRuntime().exec("su").apply {
                 BufferedWriter(OutputStreamWriter(this.outputStream)).run {
                     this.write("pm clear $packageName\n")
+                    this.write("wm density 450 $packageName\n")
                     /**
                      * If I want it to force stop  rather than clear data then comment out line above
                      * and un-comment the following one
                      * this.write("am force-stop $packageName\n")
+                     */
+                    /**
+                     * I DONT THINK THIS MAKES ANYTHING REALLY BUT I COULD TEST ONCE AGAIN:
+                     * this.write("wm density 450 $packageName\n")
                      */
                     this.write("exit\n")
                     this.flush()
@@ -75,6 +80,22 @@ class Utils {
         }
     }
 
+    /**
+     * Reset wm density to default stock ROM values.
+     */
+    fun resetWmDensity(packageName: String, context: Context) {
+        try {
+            Runtime.getRuntime().exec("su").apply {
+                BufferedWriter(OutputStreamWriter(this.outputStream)).run {
+                    this.write("wm density reset $packageName\n")
+                    this.write("exit\n")
+                    this.flush()
+                }
+            }
+        } catch (e: Exception) {
+            Toast.makeText(context, R.string.failed_to_launch_package, Toast.LENGTH_SHORT).show()
+        }
+    }
     /**
      * Change permissions on private data, shared_prefs directory and preferences file.
      * Otherwise XSharedPreference cannot read the file.
