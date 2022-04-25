@@ -11,7 +11,7 @@ import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_SPOOF_ANDROID_VERSION_FOL
 import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_SPOOF_ANDROID_VERSION_MANUAL
 import soy_titooo.xposed.gfnfpsunlocker.Constants.SHARED_PREF_FILE_NAME
 
-class AdvancedOptionsActivity: AppCompatActivity(R.layout.advanced_options_activity) {
+class AdvancedOptionsActivity : AppCompatActivity(R.layout.advanced_options_activity) {
 
     private val pref by lazy {
         getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_WORLD_READABLE)
@@ -34,7 +34,8 @@ class AdvancedOptionsActivity: AppCompatActivity(R.layout.advanced_options_activ
         /**
          * Get the current spoofing device an its android version.
          */
-        val deviceNameInPreference = pref.getString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
+        val deviceNameInPreference =
+            pref.getString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
         val spoofDevice = DeviceProps.getDeviceProps(deviceNameInPreference)
         deviceNameLabel.text = spoofDevice?.deviceName
         deviceAndroidVersion.text = spoofDevice?.androidVersion?.label
@@ -74,7 +75,10 @@ class AdvancedOptionsActivity: AppCompatActivity(R.layout.advanced_options_activ
 
             check(
                 when {
-                    pref.getBoolean(PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE, false) -> R.id.follow_spoof_device_version
+                    pref.getBoolean(
+                        PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE,
+                        false
+                    ) -> R.id.follow_spoof_device_version
                     manualVersion != null && manualVersion in allVersionLabels -> R.id.manually_set_android_version
                     else -> R.id.dont_spoof_android_version
                 }
@@ -90,13 +94,13 @@ class AdvancedOptionsActivity: AppCompatActivity(R.layout.advanced_options_activ
     /**
      * Function to save all options.
      */
-    private fun savePreferences(){
+    private fun savePreferences() {
         pref?.edit()?.run {
 
             /** Option for verbose log. */
             putBoolean(PREF_ENABLE_VERBOSE_LOGS, verboseLogging.isChecked)
 
-            when(androidVersionRadioGroup.checkedRadioButtonId){
+            when (androidVersionRadioGroup.checkedRadioButtonId) {
 
                 /** If not to spoof, disable both preferences */
                 R.id.dont_spoof_android_version -> {

@@ -13,7 +13,7 @@ import soy_titooo.xposed.gfnfpsunlocker.Constants.SHARED_PREF_FILE_NAME
 /**
  * Provides granular controls for selecting some specific feature flags.
  */
-class FeatureCustomize: AppCompatActivity(R.layout.feature_customize) {
+class FeatureCustomize : AppCompatActivity(R.layout.feature_customize) {
 
     private val pref by lazy {
         getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_WORLD_READABLE)
@@ -28,7 +28,7 @@ class FeatureCustomize: AppCompatActivity(R.layout.feature_customize) {
         val defaultFeatures = DeviceProps.defaultFeatures
         val defaultFeatureLevelsName = defaultFeatures.map { it.displayName }.toSet()
 
-        pref.getStringSet(PREF_SPOOF_FEATURES_LIST, defaultFeatureLevelsName)?: setOf()
+        pref.getStringSet(PREF_SPOOF_FEATURES_LIST, defaultFeatureLevelsName) ?: setOf()
     }
 
     private val utils by lazy { Utils() }

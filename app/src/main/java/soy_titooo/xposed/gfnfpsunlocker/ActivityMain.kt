@@ -29,7 +29,7 @@ import java.io.ByteArrayOutputStream
 import java.net.URL
 
 
-class ActivityMain: AppCompatActivity(R.layout.activity_main) {
+class ActivityMain : AppCompatActivity(R.layout.activity_main) {
 
     /**
      * Normally [MODE_WORLD_READABLE] causes a crash.
@@ -42,21 +42,22 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
     private val pref by lazy {
         try {
             getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_WORLD_READABLE)
-        } catch (_: Exception){
+        } catch (_: Exception) {
             null
         }
     }
 
-    private fun showRebootSnack(){
+    private fun showRebootSnack() {
         if (pref == null) return // don't display snackbar if module not active.
         val rootView = findViewById<ScrollView>(R.id.root_view_for_snackbar)
-        Snackbar.make(rootView, R.string.please_force_stop_google_photos, Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(rootView, R.string.please_force_stop_google_photos, Snackbar.LENGTH_SHORT)
+            .show()
     }
 
     /**
      * Animate the "Feature flags changed" textview and hide it after showing for sometime.
      */
-    private fun peekFeatureFlagsChanged(textView: TextView){
+    private fun peekFeatureFlagsChanged(textView: TextView) {
         textView.run {
             alpha = 1.0f
             animate().alpha(0.0f).apply {
@@ -69,17 +70,16 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
     private val utils by lazy { Utils() }
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         /**
          * Check if [pref] is not null. If it is, then module is not enabled.
          */
-        if (pref == null){
+        if (pref == null) {
             AlertDialog.Builder(this)
                 .setMessage(R.string.module_not_enabled)
-                .setPositiveButton(R.string.close) {_, _ ->
+                .setPositiveButton(R.string.close) { _, _ ->
                     finish()
                 }
                 .setCancelable(false)
@@ -89,7 +89,8 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         /**
          * Link to xml views.
          */
-        val switchEnforceGooglePhotos = findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
+        val switchEnforceGooglePhotos =
+            findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
         val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
         val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
         val openGooglePhotos = findViewById<ImageButton>(R.id.open_google_photos)
@@ -103,7 +104,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          */
 
 
-       /**
+        /**
          * See [FeatureSpoofer].
          */
         switchEnforceGooglePhotos.apply {
@@ -122,16 +123,23 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          */
         deviceSpooferSpinner.apply {
             val deviceNames = DeviceProps.allDevices.map { it.deviceName }
-            val aa = ArrayAdapter(this@ActivityMain,android.R.layout.simple_spinner_item, deviceNames)
+            val aa =
+                ArrayAdapter(this@ActivityMain, android.R.layout.simple_spinner_item, deviceNames)
 
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             adapter = aa
-            val defaultSelection = pref?.getString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
+            val defaultSelection =
+                pref?.getString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
             /** Second argument is `false` to prevent calling [peekFeatureFlagsChanged] on initialization */
             setSelection(aa.getPosition(defaultSelection), false)
 
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
                     val deviceName = aa.getItem(position)
                     pref?.edit()?.apply {
                         putString(PREF_DEVICE_TO_SPOOF, deviceName)
@@ -149,7 +157,6 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
         }
-
 
 
         /**
@@ -187,14 +194,12 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          */
 
 
-
-
         /**
          * Check if changelogs need to be shown when upgrading from older version.
          */
         pref?.apply {
             val thisVersion = BuildConfig.VERSION_CODE
-            if (getInt(PREF_LAST_VERSION, 0) < thisVersion){
+            if (getInt(PREF_LAST_VERSION, 0) < thisVersion) {
                 showChangeLog()
                 edit().apply {
                     putInt(PREF_LAST_VERSION, thisVersion)
@@ -226,7 +231,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
     /**
      * Method to show latest changes.
      */
-    private fun showChangeLog(){
+    private fun showChangeLog() {
         AlertDialog.Builder(this)
             .setTitle(R.string.version_head)
             .setMessage(R.string.version_desc)
@@ -247,7 +252,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
      * Click listener on menu.
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.menu_changelog -> showChangeLog()
         }
         return super.onOptionsItemSelected(item)
@@ -308,7 +313,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
     /**
      * Open any url link
      */
-    fun openWebLink(url: String){
+    fun openWebLink(url: String) {
         startActivity(Intent(Intent.ACTION_VIEW).apply {
             data = Uri.parse(url)
         })

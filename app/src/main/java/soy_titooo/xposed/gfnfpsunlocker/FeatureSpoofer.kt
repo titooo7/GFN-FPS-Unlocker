@@ -11,7 +11,7 @@ import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import soy_titooo.xposed.gfnfpsunlocker.BuildConfig
 
-class FeatureSpoofer: IXposedHookLoadPackage {
+class FeatureSpoofer : IXposedHookLoadPackage {
 
     /**
      * Actual class is not android.content.pm.PackageManager.
@@ -31,7 +31,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
     /**
      * Simple message to log messages in lsposed log as well as android log.
      */
-    private fun log(message: String){
+    private fun log(message: String) {
         XposedBridge.log("GFN120FPSUnlocker: $message")
         Log.d("GFN120FPSUnlocker", message)
     }
@@ -59,30 +59,31 @@ class FeatureSpoofer: IXposedHookLoadPackage {
         val defaultFeatures = DeviceProps.defaultFeatures
         val defaultFeatureLevelsName = defaultFeatures.map { it.displayName }.toSet()
 
-        val featureFlags = pref.getStringSet(PREF_SPOOF_FEATURES_LIST, defaultFeatureLevelsName)?.let { set ->
+        val featureFlags =
+            pref.getStringSet(PREF_SPOOF_FEATURES_LIST, defaultFeatureLevelsName)?.let { set ->
 
-            val eligibleFeatures: List<DeviceProps.Features> =
+                val eligibleFeatures: List<DeviceProps.Features> =
 
-                when {
-                    set.isEmpty() -> {
-                        log("Feature flags init: EMPTY SET")
-                        listOf()
+                    when {
+                        set.isEmpty() -> {
+                            log("Feature flags init: EMPTY SET")
+                            listOf()
+                        }
+                        set == defaultFeatureLevelsName -> {
+                            log("Feature flags init: DEFAULT SET")
+                            defaultFeatures
+                        }
+                        else -> DeviceProps.allFeatures.filter { set.contains(it.displayName) }
                     }
-                    set == defaultFeatureLevelsName -> {
-                        log("Feature flags init: DEFAULT SET")
-                        defaultFeatures
-                    }
-                    else -> DeviceProps.allFeatures.filter { set.contains(it.displayName) }
+
+                val allFeatureFlags = ArrayList<String>(0)
+
+                eligibleFeatures.forEach {
+                    allFeatureFlags.addAll(it.featureFlags)
                 }
 
-            val allFeatureFlags = ArrayList<String>(0)
-
-            eligibleFeatures.forEach {
-                allFeatureFlags.addAll(it.featureFlags)
-            }
-
-            allFeatureFlags
-        }?: listOf()
+                allFeatureFlags
+            } ?: listOf()
 
         featureFlags.apply {
             log("Pass TRUE for feature flags: $featureFlags")
@@ -121,7 +122,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
      * then set result as `false`.
      * Else don't set anything.
      */
-    private fun spoofFeatureEnquiryResultIfNeeded(param: XC_MethodHook.MethodHookParam?){
+    private fun spoofFeatureEnquiryResultIfNeeded(param: XC_MethodHook.MethodHookParam?) {
         val arguments = param?.args?.toList()
 
         var passFeatureTrue = false
@@ -129,7 +130,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
 
         arguments?.forEach {
             if (it.toString() in finalFeaturesToSpoof) passFeatureTrue = true
-            else if (overrideCustomROMLevels){
+            else if (overrideCustomROMLevels) {
                 if (it.toString() in featuresNotToSpoof) passFeatureFalse = true
             }
         }
@@ -152,7 +153,8 @@ class FeatureSpoofer: IXposedHookLoadPackage {
          * then check package name and return if necessary.
          */
         if (pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true) &&
-            lpparam?.packageName != PACKAGE_NAME_GOOGLE_PHOTOS) return
+            lpparam?.packageName != PACKAGE_NAME_GOOGLE_PHOTOS
+        ) return
 
         log("Loaded FeatureSpoofer for ${lpparam?.packageName}")
 
@@ -163,7 +165,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
             CLASS_APPLICATION_MANAGER,
             lpparam?.classLoader,
             METHOD_HAS_SYSTEM_FEATURE, String::class.java,
-            object: XC_MethodHook() {
+            object : XC_MethodHook() {
 
                 override fun beforeHookedMethod(param: MethodHookParam?) {
                     super.beforeHookedMethod(param)
@@ -180,7 +182,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
             CLASS_APPLICATION_MANAGER,
             lpparam?.classLoader,
             METHOD_HAS_SYSTEM_FEATURE, String::class.java, Int::class.java,
-            object: XC_MethodHook() {
+            object : XC_MethodHook() {
 
                 override fun beforeHookedMethod(param: MethodHookParam?) {
                     super.beforeHookedMethod(param)

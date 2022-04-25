@@ -10,7 +10,7 @@ android {
         applicationId "soy_titooo.xposed.gfnfpsunlocker"
         minSdk 21
         targetSdk 31
-        versionCode 5C:\Users\juanm\Documents\GitHub\GFN-FPS-Unlocker\README.md
+        versionCode 5
 
         versionName "1.0"
     }

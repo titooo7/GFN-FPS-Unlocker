@@ -6,8 +6,10 @@ object Constants {
 
     val TELEGRAM_GROUP = "https://t.me/"
 
-    val UPDATE_INFO_URL = "https://raw.githubusercontent.com/titoo7/GFN-120-FPS-Unlocker/main/update_info.json"
-    val UPDATE_INFO_URL2 = "https://raw.githubusercontent.com/Xposed-Modules-Repo/soy_titooo.xposed.gfnfpsunlocker/main/update_info.json"
+    val UPDATE_INFO_URL =
+        "https://raw.githubusercontent.com/titoo7/GFN-120-FPS-Unlocker/main/update_info.json"
+    val UPDATE_INFO_URL2 =
+        "https://raw.githubusercontent.com/Xposed-Modules-Repo/soy_titooo.xposed.gfnfpsunlocker/main/update_info.json"
     val RELEASES_URL = "https://github.com/titooo7/GFN-120-FPS-Unlocker/releases"
     val RELEASES_URL2 = "https://github.com/titooo7/soy_titooo.xposed.gfnfpsunlocker/releases"
 

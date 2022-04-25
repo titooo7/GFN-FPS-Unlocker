@@ -22,12 +22,12 @@ import soy_titooo.xposed.gfnfpsunlocker.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHO
  *
  * Device properties stored in [DeviceProps].
  */
-class DeviceSpoofer: IXposedHookLoadPackage {
+class DeviceSpoofer : IXposedHookLoadPackage {
 
     /**
      * Simple message to log messages in lsposed log as well as android log.
      */
-    private fun log(message: String){
+    private fun log(message: String) {
         XposedBridge.log("GFN120FPSUnlocker: $message")
         Log.d("GFN120FPSUnlocker", message)
     }
@@ -81,7 +81,8 @@ class DeviceSpoofer: IXposedHookLoadPackage {
          * then check package name and return if necessary.
          */
         if (pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true) &&
-            lpparam?.packageName != PACKAGE_NAME_GOOGLE_PHOTOS) return
+            lpparam?.packageName != PACKAGE_NAME_GOOGLE_PHOTOS
+        ) return
 
         log("Loaded DeviceSpoofer for ${lpparam?.packageName}")
         log("Device spoof: ${finalDeviceToSpoof?.deviceName}")

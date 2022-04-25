@@ -27,7 +27,7 @@ class Utils {
      * Tried my level best to use xposed API to force stop the application,
      * but it kept throwing error that XposedHelpers not found. No idea why.
      */
-    fun forceStopPackage(packageName: String, context: Context){
+    fun forceStopPackage(packageName: String, context: Context) {
         try {
             Toast.makeText(context, R.string.killing_please_wait, Toast.LENGTH_SHORT).show()
             Runtime.getRuntime().exec("su").apply {
@@ -42,7 +42,7 @@ class Utils {
                     this.flush()
                 }
             }
-        } catch (e: Exception){
+        } catch (e: Exception) {
             Toast.makeText(context, R.string.failed_to_stop_package, Toast.LENGTH_SHORT).show()
             val intent = Intent().apply {
                 action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
@@ -63,15 +63,14 @@ class Utils {
     /**
      * Launch an app.
      */
-    fun openApplication(packageName: String, context: Context){
+    fun openApplication(packageName: String, context: Context) {
         try {
             val pm = context.packageManager
             val launchIntent = pm.getLaunchIntentForPackage(packageName)
             if (launchIntent != null) {
                 context.startActivity(launchIntent)
             }
-        }
-        catch (e: Exception){
+        } catch (e: Exception) {
             Toast.makeText(context, R.string.failed_to_launch_package, Toast.LENGTH_SHORT).show()
         }
     }
@@ -123,7 +122,7 @@ class Utils {
 
         val jsonObject = JSONObject()
         pref?.all?.let { allPrefs ->
-            for (key in allPrefs.keys){
+            for (key in allPrefs.keys) {
                 if (key !in fieldsNotToCopy) jsonObject.put(key, allPrefs[key])
             }
         }

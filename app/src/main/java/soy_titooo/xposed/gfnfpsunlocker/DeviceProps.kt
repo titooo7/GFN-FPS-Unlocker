@@ -1,4 +1,5 @@
 package soy_titooo.xposed.gfnfpsunlocker
+
 /**
  * Build values taken from:
  * Pixel 6:
@@ -24,7 +25,7 @@ object DeviceProps {
     class Features(
         val displayName: String,
         val featureFlags: List<String>,
-    ){
+    ) {
         constructor(displayName: String, vararg featureFlags: String) : this(
             displayName,
             featureFlags.toList()
@@ -37,7 +38,8 @@ object DeviceProps {
      */
     val allFeatures = listOf(
 
-        Features("Pixel 2021", // Pixel 6 Pro
+        Features(
+            "Pixel 2021", // Pixel 6 Pro
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
             "com.google.android.apps.photos.PIXEL_2021_PRELOAD",
         ),
@@ -68,7 +70,7 @@ object DeviceProps {
         val label: String,
         val release: String,
         val sdk: Int,
-    ){
+    ) {
         fun getAsMap() = hashMapOf(
             Pair("RELEASE", release),
             Pair("SDK_INT", sdk),
@@ -122,13 +124,17 @@ object DeviceProps {
         DeviceEntries("None", hashMapOf(), "None", null),
 
         DeviceEntries(
-            "Shield TV Pro", hashMapOf(
+            "Shield TV Pro",
+            hashMapOf(
                 Pair("BRAND", "NVIDIA"),
                 Pair("MANUFACTURER", "NVIDIA"),
                 Pair("DEVICE", "mdarcy"),
                 Pair("PRODUCT", "mdarcy"),
                 Pair("MODEL", "SHIELD Android TV"),
-                Pair("FINGERPRINT", "NVIDIA/mdarcy/mdarcy:11/RQ1A.210105.003/7094531_2999.9831:user/release-keys"),
+                Pair(
+                    "FINGERPRINT",
+                    "NVIDIA/mdarcy/mdarcy:11/RQ1A.210105.003/7094531_2999.9831:user/release-keys"
+                ),
                 //Pair("BOARD", "???"),
                 //Pair("HARDWARE", "???"),
                 //Pair("TYPE", "???"),
@@ -138,13 +144,17 @@ object DeviceProps {
         ),
 
         DeviceEntries(
-            "ASUS ROG 5", hashMapOf(
-				Pair("BRAND", "asus"),
+            "ASUS ROG 5",
+            hashMapOf(
+                Pair("BRAND", "asus"),
                 Pair("MANUFACTURER", "asus"),
                 Pair("DEVICE", "ASUS_I005_1"),
                 Pair("PRODUCT", "WW_I005D"),
                 Pair("MODEL", "ASUS_I005DA"),
-                Pair("FINGERPRINT", "asus/WW_I005D/ASUS_I005_1:11/RKQ1.201022.002/18.0840.2103.26-0:user/release-keys"),
+                Pair(
+                    "FINGERPRINT",
+                    "asus/WW_I005D/ASUS_I005_1:11/RKQ1.201022.002/18.0840.2103.26-0:user/release-keys"
+                ),
                 Pair("BOARD", "lahaina"),
                 Pair("HARDWARE", "qcom"),
                 Pair("TYPE", "Phone"),
@@ -155,18 +165,22 @@ object DeviceProps {
         ),
 
         DeviceEntries(
-            "SAMSUNG", hashMapOf(
-				Pair("BRAND", "samsung"),
+            "SAMSUNG",
+            hashMapOf(
+                Pair("BRAND", "samsung"),
                 Pair("MANUFACTURER", "samsung"),
                 Pair("DEVICE", "r8q"),
                 Pair("PRODUCT", "r8qxxx"),
                 Pair("MODEL", "SM-G781B"),
-                Pair("FINGERPRINT", "samsung/r8qxxx/r8q:10/QP1A.190711.020/G781BXXU1ATJ5:user/release-keys"),
+                Pair(
+                    "FINGERPRINT",
+                    "samsung/r8qxxx/r8q:10/QP1A.190711.020/G781BXXU1ATJ5:user/release-keys"
+                ),
                 Pair("BOARD", "kona"),
                 Pair("HARDWARE", "qcom"),
                 Pair("TYPE", "Phone"),
-				Pair("ID", "QP1A.190711.020"),
-				Pair("DISPLAY", "r8qxxx-user 10 QP1A.190711.020 G781BXXU1ATJ5 release-keys"),
+                Pair("ID", "QP1A.190711.020"),
+                Pair("DISPLAY", "r8qxxx-user 10 QP1A.190711.020 G781BXXU1ATJ5 release-keys"),
                 Pair("INCREMENTAL", "G781BXXU1ATJ5"),
                 //Pair("PLATFORM", "kona"), this is not a prop from android.os.Build so using it breaks the above
 
@@ -177,13 +191,17 @@ object DeviceProps {
         ),
 
         DeviceEntries(
-            "PIXEL 6 PRO", hashMapOf(
-				Pair("BRAND", "google"),
+            "PIXEL 6 PRO",
+            hashMapOf(
+                Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "raven"),
                 Pair("PRODUCT", "raven"),
                 Pair("MODEL", "Pixel 6 Pro"),
-                Pair("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"),
+                Pair(
+                    "FINGERPRINT",
+                    "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"
+                ),
                 Pair("HARDWARE", "raven"),
                 Pair("BOARD", "raven"),
                 Pair("TYPE", "Phone"),
@@ -203,10 +221,10 @@ object DeviceProps {
      * Call [getFeaturesUpTo] using a device name rather than feature level.
      * Used in spinner in main activity.
      */
-    fun getFeaturesUpToFromDeviceName(deviceName: String?): Set<String>{
+    fun getFeaturesUpToFromDeviceName(deviceName: String?): Set<String> {
         return getDeviceProps(deviceName)?.let {
             getFeaturesUpTo(it.featureLevelName).map { it.displayName }.toSet()
-        }?: setOf()
+        } ?: setOf()
     }
 
     /**
